@@ -1,0 +1,40 @@
+import React from "react";
+import { Grid } from "@material-ui/core";
+import Product from "./Product/Product";
+
+import makeStyles from "./styles";
+
+const products = [
+  {
+    id: 1,
+    name: "watch",
+    description: "Waterproof watch",
+    image:
+      "https://th.bing.com/th/id/OIP.Xt3MZ1uCuM0-NhfOm3tsfADMEx?w=182&h=272&c=7&o=5&pid=1.7",
+  },
+  {
+    id: 2,
+    name: "Shoes",
+    description: "Lether Shoe",
+    image:
+      "https://th.bing.com/th/id/OIP.Xt3MZ1uCuM0-NhfOm3tsfADMEx?w=182&h=272&c=7&o=5&pid=1.7",
+  },
+];
+
+const Products = () => {
+  const classes = makeStyles();
+  return (
+    <main className={classes.content}>
+      <div className={classes.toolbar} />
+      <Grid container justify="center" spacing={4}>
+        {products.map((product) => (
+          <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+            <Product product={product} />
+          </Grid>
+        ))}
+      </Grid>
+    </main>
+  );
+};
+
+export default Products;
